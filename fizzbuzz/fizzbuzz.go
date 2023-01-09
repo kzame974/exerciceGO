@@ -11,7 +11,7 @@ import (
  */
 func fizzBuzz(number int) string {
 	switch {
-	case number%3 == 0 && number%5 == 0:
+	case number%15 == 0:
 		return "FizzBuzz"
 	case number%3 == 0:
 		return "Fizz"
