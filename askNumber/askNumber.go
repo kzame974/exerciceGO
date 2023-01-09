@@ -14,11 +14,17 @@ func main() {
 		_, err := fmt.Scanf("%d", &val)
 		// gestion d'erreur
 		if err != nil {
-			//fmt.Println(err)
+			panic(err)
 			return
 		}
+		defer func() {
+			if r := recover(); r != nil {
+				fmt.Println("Recover following panic :", r)
+			}
+		}()
 		// on exclu tous les types d'entré sauf les int entier sans le zéro
 		verifyNumber := regexp.MustCompile("^[1-9][0-9]*$")
+
 		// on vérifie la valeur entré par le user
 		if verifyNumber.MatchString(strconv.Itoa(val)) {
 			fmt.Println("You entered number:", val)
@@ -26,7 +32,7 @@ func main() {
 		} else if val == 0 {
 			fmt.Println("0 is neither negative nor positive")
 		} else {
-			fmt.Println("You entered wrong input")
+			panic("You entered wrong input")
 		}
 	}
 }
