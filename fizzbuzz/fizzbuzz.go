@@ -22,13 +22,15 @@ func fizzBuzz(number int) string {
 // soit on donne un chiffre précis en entrée soit on fait sur une fourchette de 1 à 100
 func main() {
 
-	num, _ := strconv.Atoi(os.Args[1])
-	if num != 0 {
-		fmt.Println(fizzBuzz(num))
-	} else {
+	// si pas d'argument d'entré on fait de 1 à 100 le fizzBuzz
+	if len(os.Args) < 2 {
 		// sur une fourchette de 1 à 100
 		for i := 1; i <= 100; i++ {
 			fmt.Println(fizzBuzz(i))
 		}
+	} else {
+		// sinon on traduit l'input entré
+		num, _ := strconv.Atoi(os.Args[1])
+		fmt.Println(fizzBuzz(num))
 	}
 }
