@@ -42,7 +42,7 @@ func verifyInputNumber(val int) {
 	} else if val == 0 {
 		fmt.Println("0 is neither negative nor positive")
 	} else {
-		panic("You entered wrong input")
+		panic("You entered a negative number!")
 	}
 }
 
