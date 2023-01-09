@@ -6,7 +6,9 @@ import (
 	"strconv"
 )
 
-// imprime fizz buzz fizzbuzz ou le nombre en fonction des conditions
+/*
+** retourne une chaine de caractere en fonction de si l'int est divisible par 3, 5 ou les deux, sinon retourne l'int
+ */
 func fizzBuzz(number int) string {
 	switch {
 	case number%3 == 0 && number%5 == 0:
@@ -19,9 +21,10 @@ func fizzBuzz(number int) string {
 	return strconv.Itoa(number)
 }
 
-// soit on donne un chiffre précis en entrée soit on fait sur une fourchette de 1 à 100
-func main() {
-
+/*
+** function qui vérfie si on donne un chiffre précis en entrée sinon on fait sur une fourchette de 1 à 100
+ */
+func checkIfArgs() {
 	// si pas d'argument d'entré on fait de 1 à 100 le fizzBuzz
 	if len(os.Args) < 2 {
 		// sur une fourchette de 1 à 100
@@ -33,4 +36,8 @@ func main() {
 		num, _ := strconv.Atoi(os.Args[1])
 		fmt.Println(fizzBuzz(num))
 	}
+}
+
+func main() {
+	checkIfArgs()
 }
